@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/statistic_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Statistic">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/greyBarRoot"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/colorHeadingBackground"
+        tools:context=".MainActivity">
+
+        <ImageButton
+            android:id="@+id/calendar"
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:layout_gravity="center"
+            android:gravity="start"
+            android:contentDescription="@string/TEXT_CALENDAR"
+            android:layout_marginStart="10dp"
+            android:onClick="showCalendar"
+            android:background="@drawable/ic_today_black_24dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/dayBefore"
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:onClick="changeDateOneDayBefore"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:contentDescription="@string/TEXT_NAVIGATE_BEFORE"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/ic_navigate_before_black_24dp" />
+
+        <TextView
+            android:id="@+id/dateView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@color/colorHeadingBackground"
+            android:textSize="22sp"
+            android:textStyle="normal"
+            android:textColor="@color/colorListFont"
+            android:onClick="thisDay"
+            app:layout_constraintLeft_toRightOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1" />
+
+        <ImageButton
+            android:id="@+id/dayAfter"
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:onClick="changeDateOneDayAfter"
+            android:contextClickable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/TEXT_NAVIGATE_NEXT"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/ic_navigate_next_black_24dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/timeline"
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:background="@drawable/ic_timeline_black_24dp"
+            android:layout_gravity="center"
+            android:gravity="end"
+            android:contentDescription="@string/TEXT_CHANGE_TIMELINE"
+            android:layout_marginEnd="10dp"
+            android:onClick="changeTimeline"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/greyBarDetails"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/colorHeadingBackground"
+        tools:context=".MainActivity">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="start"
+            android:onClick="goBack"
+            android:contentDescription="@string/TEXT_BACK"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/ic_navigate_before_black_24dp" />
+
+        <TextView
+            android:id="@+id/textBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="5dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="start"
+            android:text="@string/TEXT_BACK"
+            android:onClick="goBack"
+            android:background="@color/colorHeadingBackground"
+            android:textSize="22sp"
+            android:textStyle="normal"
+            android:textColor="@color/colorListFont"
+            app:layout_constraintLeft_toRightOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pieChartLayout"
+        android:layout_marginTop="55dp"
+        android:orientation="vertical"
+        android:gravity="top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/piechart"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_height="500dp" />
+
+        <TextView
+            android:id="@+id/noPieChart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="300dp"
+            android:text="@string/TEXT_NO_ENTRY"
+            android:fontFamily="@font/source_sans_pro"
+            android:textColor="#757575"
+            android:textSize="20sp"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/detailsLayout"
+        android:layout_marginTop="55dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/drinkCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            app:layout_constraintLeft_toRightOf="parent"
+            tools:layout_constraintLeft_creator="1"
+            tools:layout_constraintTop_creator="1" />
+
+        <ListView
+            android:id="@+id/listview_drinks"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/detailsTotal"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MainActivity"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/image_water"
+                android:contentDescription="@string/TEXT_IMAGE" />
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginEnd="10dp"
+                android:textSize="36sp"
+                app:layout_constraintLeft_toRightOf="parent"
+                tools:layout_constraintLeft_creator="1"
+                tools:layout_constraintTop_creator="1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/error_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro"
+        android:textColor="#757575"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"/>
+
+</android.support.constraint.ConstraintLayout>
